@@ -10,7 +10,10 @@
 		517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC8323D17256000B4C5A /* AppDelegate.swift */; };
 		517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8C23D17257000B4C5A /* Assets.xcassets */; };
 		517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */; };
-		517CFC9B23D17258000B4C5A /* Top10BlogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC9A23D17258000B4C5A /* Top10BlogsTests.swift */; };
+		517CFCA823D45273000B4C5A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCA723D45273000B4C5A /* DashboardViewController.swift */; };
+		517CFCAC23D466E3000B4C5A /* FoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCAB23D466E3000B4C5A /* FoodCard.swift */; };
+		517CFCB023D487C4000B4C5A /* Top10BlogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCAF23D487C4000B4C5A /* Top10BlogsTests.swift */; };
+		517CFCB423D4919A000B4C5A /* RiviServerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 517CFCB323D4919A000B4C5A /* RiviServerData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +33,11 @@
 		517CFC8F23D17257000B4C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		517CFC9123D17257000B4C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		517CFC9623D17258000B4C5A /* Top10BlogsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Top10BlogsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		517CFC9A23D17258000B4C5A /* Top10BlogsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top10BlogsTests.swift; sourceTree = "<group>"; };
 		517CFC9C23D17258000B4C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		517CFCA723D45273000B4C5A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		517CFCAB23D466E3000B4C5A /* FoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCard.swift; sourceTree = "<group>"; };
+		517CFCAF23D487C4000B4C5A /* Top10BlogsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Top10BlogsTests.swift; sourceTree = "<group>"; };
+		517CFCB323D4919A000B4C5A /* RiviServerData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RiviServerData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,9 @@
 				517CFC8C23D17257000B4C5A /* Assets.xcassets */,
 				517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */,
 				517CFC9123D17257000B4C5A /* Info.plist */,
+				517CFCA723D45273000B4C5A /* DashboardViewController.swift */,
+				517CFCAB23D466E3000B4C5A /* FoodCard.swift */,
+				517CFCB323D4919A000B4C5A /* RiviServerData.json */,
 			);
 			path = Top10Blogs;
 			sourceTree = "<group>";
@@ -84,7 +93,7 @@
 		517CFC9923D17258000B4C5A /* Top10BlogsTests */ = {
 			isa = PBXGroup;
 			children = (
-				517CFC9A23D17258000B4C5A /* Top10BlogsTests.swift */,
+				517CFCAF23D487C4000B4C5A /* Top10BlogsTests.swift */,
 				517CFC9C23D17258000B4C5A /* Info.plist */,
 			);
 			path = Top10BlogsTests;
@@ -172,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */,
+				517CFCB423D4919A000B4C5A /* RiviServerData.json in Resources */,
 				517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,7 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				517CFCAC23D466E3000B4C5A /* FoodCard.swift in Sources */,
 				517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */,
+				517CFCA823D45273000B4C5A /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				517CFC9B23D17258000B4C5A /* Top10BlogsTests.swift in Sources */,
+				517CFCB023D487C4000B4C5A /* Top10BlogsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,114 @@
+{
+  "data": {
+    "card_details": {
+      "title": "4 Must Try Local Foods in",
+      "type": "local_food",
+      "city": "Barcelona"
+    },
+    "card": [
+      {
+        "title": "Bombas",
+        "desc": "Catalan Fried Potato",
+        "img": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+        "card_no": 1,
+        "details": {
+          "about": [
+            "Said to have been invented in Barceloneta, 'la bomba' is a large breaded and fried ball of mashed potatoes with a pork- or beef-filled centre. It's served hot and topped with a spicy sauce and often alioli (garlic mayonnaise) as well."
+          ],
+          "where": [
+            {
+              "name": "Senyor Vermut",
+              "distance": 1
+            },
+            {
+              "name": "La Cova Fumada",
+              "distance": 4
+            }
+          ],
+          "dishes": [],
+          "images": [
+            "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+            "https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
+            "https://images.unsplash.com/photo-1529042410759-befb1204b468?ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80"
+          ]
+        }
+      },
+      {
+        "title": "Crema Catalana",
+        "desc": "",
+        "img": "https://images.unsplash.com/photo-1432139438709-ee8369449944?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80",
+        "card_no": 4,
+        "details": {
+          "about": [
+            "A thick custard with a golden crust of burnt sugar on top is the perfect ending to a traditional Catalan meal. Usually served slightly chilled, it's similar in texture and flavour to crème brûlée."
+          ],
+          "where": [
+            {
+              "name": "Pa i Trago",
+              "distance": null
+            },
+            {
+              "name": "La Cova Fumada",
+              "distance": 4
+            }
+          ],
+          "dishes": [],
+          "images": [
+            "https://images.unsplash.com/photo-1432139438709-ee8369449944?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80",
+            "https://images.unsplash.com/photo-1464196209402-a16825eb34f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80"
+          ]
+        }
+      },
+      {
+        "title": "Mato",
+        "desc": "Unsalted Goat’s Cheese",
+        "img": "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+        "card_no": 3,
+        "details": {
+          "about": [],
+          "where": [
+            {
+              "name": "Senyor Vermut",
+              "distance": null
+            }
+          ],
+          "dishes": [
+            "Juan Mato",
+            "Mato Mary"
+          ],
+          "images": [
+            "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+            "https://images.unsplash.com/photo-1517999586990-2126f2b0c97d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+          ]
+        }
+      },
+      {
+        "title": "Paella",
+        "desc": "Valencian Rice Dish",
+        "img": "https://images.unsplash.com/photo-1515443961218-a51367888e4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+        "card_no": 2,
+        "details": {
+          "about": [
+            "Paella is a Valencian rice dish that has ancient roots, but its modern form traces origins in the mid-19th century in the area around the Albufera lagoon on the east coast of Spain adjacent to the city of Valencia"
+          ],
+          "where": [
+            {
+              "name": "Cal Boter",
+              "distance": 0.2
+            }
+          ],
+          "dishes": [
+            "Easy Paella",
+            "Seafood Paella"
+          ],
+          "images": [
+            "https://images.unsplash.com/photo-1515443961218-a51367888e4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+            "https://images.unsplash.com/photo-1512058466835-da4d54fb0ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=960&q=80",
+            "https://images.unsplash.com/photo-1554371650-4484f3a102f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+            "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+          ]
+        }
+      }
+    ]
+  }
+}
