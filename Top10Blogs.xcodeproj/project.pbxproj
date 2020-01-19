@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC8323D17256000B4C5A /* AppDelegate.swift */; };
-		517CFC8623D17256000B4C5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC8523D17256000B4C5A /* SceneDelegate.swift */; };
-		517CFC8823D17256000B4C5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC8723D17256000B4C5A /* ViewController.swift */; };
-		517CFC8B23D17256000B4C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8923D17256000B4C5A /* Main.storyboard */; };
 		517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8C23D17257000B4C5A /* Assets.xcassets */; };
 		517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */; };
 		517CFC9B23D17258000B4C5A /* Top10BlogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC9A23D17258000B4C5A /* Top10BlogsTests.swift */; };
@@ -29,9 +26,6 @@
 /* Begin PBXFileReference section */
 		517CFC8023D17256000B4C5A /* Top10Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Top10Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		517CFC8323D17256000B4C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		517CFC8523D17256000B4C5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		517CFC8723D17256000B4C5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		517CFC8A23D17256000B4C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		517CFC8C23D17257000B4C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		517CFC8F23D17257000B4C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		517CFC9123D17257000B4C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,9 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				517CFC8323D17256000B4C5A /* AppDelegate.swift */,
-				517CFC8523D17256000B4C5A /* SceneDelegate.swift */,
-				517CFC8723D17256000B4C5A /* ViewController.swift */,
-				517CFC8923D17256000B4C5A /* Main.storyboard */,
 				517CFC8C23D17257000B4C5A /* Assets.xcassets */,
 				517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */,
 				517CFC9123D17257000B4C5A /* Info.plist */,
@@ -182,7 +173,6 @@
 			files = (
 				517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */,
 				517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */,
-				517CFC8B23D17256000B4C5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				517CFC8823D17256000B4C5A /* ViewController.swift in Sources */,
 				517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */,
-				517CFC8623D17256000B4C5A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +213,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		517CFC8923D17256000B4C5A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				517CFC8A23D17256000B4C5A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -372,7 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amprojects.Top10Blogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -390,7 +370,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amprojects.Top10Blogs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
