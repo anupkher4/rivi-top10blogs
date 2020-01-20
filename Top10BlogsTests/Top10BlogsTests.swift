@@ -3,12 +3,42 @@ import XCTest
 
 class Top10BlogsTests: XCTestCase {
 
+    func testFoodBlogService() {
+        let service = loadAndDecodeJson()
+
+        let summary = service?.data.summary
+        XCTAssertEqual(summary?.title, "4 Must Try Local Foods in")
+        XCTAssertEqual(summary?.city, "Barcelona")
+
+        let cards = service?.data.cards
+        XCTAssertEqual(cards?.count, 4)
+    }
+
     func testFoodCard() {
         let service = loadAndDecodeJson()
-        let card = service?.data.cards.first
 
+        let card = service?.data.cards.first
         XCTAssertEqual(card?.title, "Bombas")
+        XCTAssertEqual(card?.description, "Catalan Fried Potato")
         XCTAssertEqual(card?.cardNumber, 1)
+    }
+
+    func testFoodCardDetailsDistanceIsNotNil() {
+        let service = loadAndDecodeJson()
+
+        let card = service?.data.cards.last
+        let details = card?.details
+        let distance = details?.location.first?.distance
+        XCTAssertEqual(distance, 0.2)
+    }
+
+    func testFoodCardDetailsDistanceIsNil() {
+        let service = loadAndDecodeJson()
+
+        let card = service?.data.cards[1]
+        let details = card?.details
+        let distance = details?.location.first?.distance
+        XCTAssertNil(distance)
     }
 
     private func loadAndDecodeJson() -> FoodBlogService? {
