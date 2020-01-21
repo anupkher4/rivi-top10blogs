@@ -14,6 +14,10 @@
 		517CFCAC23D466E3000B4C5A /* FoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCAB23D466E3000B4C5A /* FoodCard.swift */; };
 		517CFCB023D487C4000B4C5A /* Top10BlogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCAF23D487C4000B4C5A /* Top10BlogsTests.swift */; };
 		517CFCB423D4919A000B4C5A /* RiviServerData.json in Resources */ = {isa = PBXBuildFile; fileRef = 517CFCB323D4919A000B4C5A /* RiviServerData.json */; };
+		517CFCB623D593EB000B4C5A /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCB523D593EB000B4C5A /* DashboardViewModel.swift */; };
+		517CFCB823D5BC0A000B4C5A /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCB723D5BC0A000B4C5A /* DashboardTableViewCell.swift */; };
+		517CFCBA23D5EFCD000B4C5A /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 517CFCB923D5EFCD000B4C5A /* placeholder.png */; };
+		517CFCBC23D717BD000B4C5A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFCBB23D717BD000B4C5A /* TitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		517CFCAB23D466E3000B4C5A /* FoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCard.swift; sourceTree = "<group>"; };
 		517CFCAF23D487C4000B4C5A /* Top10BlogsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Top10BlogsTests.swift; sourceTree = "<group>"; };
 		517CFCB323D4919A000B4C5A /* RiviServerData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RiviServerData.json; sourceTree = "<group>"; };
+		517CFCB523D593EB000B4C5A /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		517CFCB723D5BC0A000B4C5A /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
+		517CFCB923D5EFCD000B4C5A /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		517CFCBB23D717BD000B4C5A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +87,17 @@
 		517CFC8223D17256000B4C5A /* Top10Blogs */ = {
 			isa = PBXGroup;
 			children = (
-				517CFC8323D17256000B4C5A /* AppDelegate.swift */,
 				517CFC8C23D17257000B4C5A /* Assets.xcassets */,
 				517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */,
 				517CFC9123D17257000B4C5A /* Info.plist */,
-				517CFCA723D45273000B4C5A /* DashboardViewController.swift */,
-				517CFCAB23D466E3000B4C5A /* FoodCard.swift */,
 				517CFCB323D4919A000B4C5A /* RiviServerData.json */,
+				517CFCB923D5EFCD000B4C5A /* placeholder.png */,
+				517CFC8323D17256000B4C5A /* AppDelegate.swift */,
+				517CFCA723D45273000B4C5A /* DashboardViewController.swift */,
+				517CFCB523D593EB000B4C5A /* DashboardViewModel.swift */,
+				517CFCAB23D466E3000B4C5A /* FoodCard.swift */,
+				517CFCB723D5BC0A000B4C5A /* DashboardTableViewCell.swift */,
+				517CFCBB23D717BD000B4C5A /* TitleView.swift */,
 			);
 			path = Top10Blogs;
 			sourceTree = "<group>";
@@ -181,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */,
+				517CFCBA23D5EFCD000B4C5A /* placeholder.png in Resources */,
 				517CFCB423D4919A000B4C5A /* RiviServerData.json in Resources */,
 				517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */,
 			);
@@ -203,6 +216,9 @@
 				517CFCAC23D466E3000B4C5A /* FoodCard.swift in Sources */,
 				517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */,
 				517CFCA823D45273000B4C5A /* DashboardViewController.swift in Sources */,
+				517CFCB623D593EB000B4C5A /* DashboardViewModel.swift in Sources */,
+				517CFCB823D5BC0A000B4C5A /* DashboardTableViewCell.swift in Sources */,
+				517CFCBC23D717BD000B4C5A /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
