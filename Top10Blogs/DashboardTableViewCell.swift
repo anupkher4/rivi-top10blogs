@@ -2,6 +2,8 @@ import UIKit
 
 class DashboardTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "DashboardTableViewCell"
+
     var viewModel: DashboardBlogCardViewModel? {
         didSet {
             if let vm = viewModel {
@@ -13,35 +15,46 @@ class DashboardTableViewCell: UITableViewCell {
     lazy var foodImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "placeholder"))
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10.0
+        imageView.clipsToBounds = true
         return imageView
     }()
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "SF Pro Text", size: 50.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 30.0)
+        label.numberOfLines = 0
         return label
     }()
 
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "SF Pro Text", size: 30.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 15.0)
         label.textColor = .gray
+        label.numberOfLines = 0
         return label
     }()
 
     lazy var labelStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isLayoutMarginsRelativeArrangement = true
         stackView.axis = .vertical
-        stackView.spacing = 20.0
+        stackView.alignment = .top
+        stackView.distribution = .fillProportionally
         return stackView
     }()
 
     lazy var contentStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [foodImageView, labelStack])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 20.0, left: 40.0, bottom: 20.0, right: 40.0)
+        stackView.layoutMargins = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         stackView.axis = .horizontal
-        stackView.spacing = 40.0
+        stackView.spacing = 10.0
+        stackView.distribution = .fillProportionally
         return stackView
     }()
 
@@ -64,8 +77,13 @@ class DashboardTableViewCell: UITableViewCell {
     }
 
     private func setupConstraints() {
-        foodImageView.heightAnchor.constraint(equalToConstant: 143.0).isActive = true
-        foodImageView.widthAnchor.constraint(equalToConstant: 143.0).isActive = true
+        contentStack.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        contentStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        contentStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        contentStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+
+        foodImageView.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
+        foodImageView.widthAnchor.constraint(equalToConstant: 100.0).isActive = true
     }
 
     private func bindData(_ viewModel: DashboardBlogCardViewModel) {

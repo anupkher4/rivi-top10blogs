@@ -6,6 +6,7 @@ class TitleView: UIView {
 
     private lazy var headingLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.textColor = .blue
         label.text = viewModel?.heading
@@ -15,20 +16,11 @@ class TitleView: UIView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 30.0)
         label.text = viewModel?.title
         label.numberOfLines = 0
         return label
-    }()
-
-    private lazy var titleStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [headingLabel, titleLabel])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 10.0
-        stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
-        return stackView
     }()
 
     init(viewModel: TitleViewModel) {
@@ -45,14 +37,19 @@ class TitleView: UIView {
     }
 
     private func setupViews() {
-        addSubview(titleStack)
+        addSubview(headingLabel)
+        addSubview(titleLabel)
     }
 
     private func setupConstraints() {
-        titleStack.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        titleStack.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        titleStack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        titleStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        headingLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 15.0).isActive = true
+        headingLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -15.0).isActive = true
+        headingLabel.firstBaselineAnchor.constraint(equalToSystemSpacingBelow: layoutMarginsGuide.topAnchor, multiplier: 1).isActive = true
+
+        titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 15.0).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -15.0).isActive = true
+        titleLabel.firstBaselineAnchor.constraint(equalToSystemSpacingBelow: headingLabel.lastBaselineAnchor, multiplier: 1).isActive = true
+        layoutMarginsGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: titleLabel.lastBaselineAnchor, multiplier: 1).isActive = true
     }
 
 }

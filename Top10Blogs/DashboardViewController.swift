@@ -17,14 +17,6 @@ class DashboardViewController: UIViewController {
         return view
     }()
 
-//    private lazy var contentStack: UIStackView = {
-//        let stack = UIStackView()
-//        stack.translatesAutoresizingMaskIntoConstraints = false
-//        stack.axis = .vertical
-//        stack.clipsToBounds = true
-//        return stack
-//    }()
-
     private lazy var titleView: UIView = {
         let view = TitleView(viewModel: viewModel.titleViewModel)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +36,7 @@ class DashboardViewController: UIViewController {
     private lazy var footerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "SF Pro Text", size: 30.0)
+        label.font = UIFont.systemFont(ofSize: 15.0)
         label.textColor = .gray
         label.text = "SEE MORE"
         return label
@@ -62,13 +54,15 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        tableView.register(DashboardTableViewCell.self, forCellReuseIdentifier: "DashboardTableViewCell")
+        tableView.register(DashboardTableViewCell.self, forCellReuseIdentifier: DashboardTableViewCell.reuseIdentifier)
         setupViewHierarchy()
         setupConstraints()
     }
 
     private func setupViewHierarchy() {
         containerView.addSubview(titleView)
+        containerView.addSubview(tableView)
+        containerView.addSubview(footerLabel)
         view.addSubview(containerView)
     }
 
@@ -76,13 +70,23 @@ class DashboardViewController: UIViewController {
         containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100.0).isActive = true
         containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
         containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
-        containerView.heightAnchor.constraint(greaterThanOrEqualToConstant: 400.0).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 400.0).isActive = true
         containerView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100.0).isActive = true
 
         titleView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         titleView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         titleView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        titleView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100.0).isActive = true
+        titleView.heightAnchor.constraint(equalToConstant: 150.0).isActive = true
+
+        tableView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: titleView.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: titleView.trailingAnchor).isActive = true
+        tableView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
+
+        footerLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+        footerLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+        footerLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        footerLabel.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
 
 }
@@ -93,8 +97,8 @@ extension DashboardViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardTableViewCell", for: indexPath) as? DashboardTableViewCell else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.reuseIdentifier, for: indexPath) as? DashboardTableViewCell else {
+            fatalError("Expected \(DashboardTableViewCell.self) type for resuseIdentifier \(DashboardTableViewCell.reuseIdentifier)")
         }
 
         let foodCard = viewModel.foodCards[indexPath.row]
@@ -105,5 +109,7 @@ extension DashboardViewController: UITableViewDataSource {
 }
 
 extension DashboardViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
