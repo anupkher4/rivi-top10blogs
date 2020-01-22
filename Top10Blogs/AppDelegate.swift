@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        guard let service = loadAndDecodeJson() else {
+        guard let service = FoodBlogService.loadAndDecodeJson() else {
             return true
         }
 
@@ -26,27 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
         return true
-    }
-
-    private func loadAndDecodeJson() -> FoodBlogService? {
-        guard let path = Bundle.main.path(forResource: "RiviServerData", ofType: "json") else {
-            print("File not found")
-            return nil
-        }
-        guard let jsonString = try? String(contentsOfFile: path, encoding: .utf8) else {
-            print("String parsing failed")
-            return nil
-        }
-        guard let jsonData = jsonString.data(using: .utf8) else {
-            print("Could not create data from json string")
-            return nil
-        }
-        let decoder = JSONDecoder()
-        guard let service = try? decoder.decode(FoodBlogService.self, from: jsonData) else {
-            print("Could not decode json data")
-            return nil
-        }
-        return service
     }
 
 }

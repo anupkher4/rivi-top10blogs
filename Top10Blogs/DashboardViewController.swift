@@ -112,5 +112,15 @@ extension DashboardViewController: UITableViewDataSource {
 extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        guard let service = FoodBlogService.loadAndDecodeJson() else {
+            return
+        }
+
+        let selectedFoodCard = viewModel.foodCards[indexPath.row]
+        let detailsViewModel = BlogDetailsViewModelImpl(service: service, selectedFoodCard: selectedFoodCard)
+
+        let detailsViewController = BlogDetailsViewController(viewModel: detailsViewModel)
+        present(detailsViewController, animated: true, completion: nil)
     }
 }

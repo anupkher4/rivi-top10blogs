@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51741FAD23D83F23005DA506 /* BlogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51741FAC23D83F23005DA506 /* BlogDetailsViewController.swift */; };
+		51741FAF23D8545F005DA506 /* BlogDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51741FAE23D8545F005DA506 /* BlogDetailsHeaderView.swift */; };
+		51741FB123D856BC005DA506 /* downChevron.png in Resources */ = {isa = PBXBuildFile; fileRef = 51741FB023D856BC005DA506 /* downChevron.png */; };
 		517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC8323D17256000B4C5A /* AppDelegate.swift */; };
 		517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8C23D17257000B4C5A /* Assets.xcassets */; };
 		517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */; };
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51741FAC23D83F23005DA506 /* BlogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsViewController.swift; sourceTree = "<group>"; };
+		51741FAE23D8545F005DA506 /* BlogDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailsHeaderView.swift; sourceTree = "<group>"; };
+		51741FB023D856BC005DA506 /* downChevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downChevron.png; sourceTree = "<group>"; };
 		517CFC8023D17256000B4C5A /* Top10Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Top10Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		517CFC8323D17256000B4C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		517CFC8C23D17257000B4C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,12 +98,15 @@
 				517CFC9123D17257000B4C5A /* Info.plist */,
 				517CFCB323D4919A000B4C5A /* RiviServerData.json */,
 				517CFCB923D5EFCD000B4C5A /* placeholder.png */,
+				51741FB023D856BC005DA506 /* downChevron.png */,
 				517CFC8323D17256000B4C5A /* AppDelegate.swift */,
 				517CFCA723D45273000B4C5A /* DashboardViewController.swift */,
 				517CFCB523D593EB000B4C5A /* DashboardViewModel.swift */,
 				517CFCAB23D466E3000B4C5A /* FoodCard.swift */,
 				517CFCB723D5BC0A000B4C5A /* DashboardTableViewCell.swift */,
 				517CFCBB23D717BD000B4C5A /* TitleView.swift */,
+				51741FAC23D83F23005DA506 /* BlogDetailsViewController.swift */,
+				51741FAE23D8545F005DA506 /* BlogDetailsHeaderView.swift */,
 			);
 			path = Top10Blogs;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 			files = (
 				517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */,
 				517CFCBA23D5EFCD000B4C5A /* placeholder.png in Resources */,
+				51741FB123D856BC005DA506 /* downChevron.png in Resources */,
 				517CFCB423D4919A000B4C5A /* RiviServerData.json in Resources */,
 				517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */,
 			);
@@ -216,6 +226,8 @@
 				517CFCAC23D466E3000B4C5A /* FoodCard.swift in Sources */,
 				517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */,
 				517CFCA823D45273000B4C5A /* DashboardViewController.swift in Sources */,
+				51741FAD23D83F23005DA506 /* BlogDetailsViewController.swift in Sources */,
+				51741FAF23D8545F005DA506 /* BlogDetailsHeaderView.swift in Sources */,
 				517CFCB623D593EB000B4C5A /* DashboardViewModel.swift in Sources */,
 				517CFCB823D5BC0A000B4C5A /* DashboardTableViewCell.swift in Sources */,
 				517CFCBC23D717BD000B4C5A /* TitleView.swift in Sources */,

@@ -16,6 +16,13 @@ protocol DashboardBlogCardViewModel {
     var description: String { get }
 }
 
+protocol BlogDetailsViewModel {
+    var titleViewModel: TitleViewModel { get }
+    var foodImageStrings: [String] { get }
+    var foodCardSections: [[FoodCard]] { get }
+    var selectedFoodCard: FoodCard { get }
+}
+
 struct TitleViewModelImpl: TitleViewModel {
     var heading: String = "CURATED FOR MAYANK"
     var title: String
@@ -44,5 +51,23 @@ struct DashboardBlogCardViewModelImpl: DashboardBlogCardViewModel {
         image = foodCard.image
         title = foodCard.title
         description = foodCard.description
+    }
+}
+
+struct BlogDetailsViewModelImpl: BlogDetailsViewModel {
+    let titleViewModel: TitleViewModel
+    let foodImageStrings: [String]
+    let foodCardSections: [[FoodCard]]
+    let selectedFoodCard: FoodCard
+
+    init(service: FoodBlogService, selectedFoodCard: FoodCard) {
+        titleViewModel = TitleViewModelImpl(foodSummary: service.data.summary)
+        foodImageStrings = service.data.cards.map { $0.image }
+        foodCardSections = service.data.cards.map({ (foodCard) -> [FoodCard] in
+            var card: [FoodCard] = []
+            card.append(foodCard)
+            return card
+        })
+        self.selectedFoodCard = selectedFoodCard
     }
 }
