@@ -1,3 +1,4 @@
+import Foundation
 import UIKit
 
 class DashboardTableViewCell: UITableViewCell {
@@ -8,13 +9,26 @@ class DashboardTableViewCell: UITableViewCell {
         didSet {
             if let vm = viewModel {
                 bindData(vm)
+                URLSession.shared.dataTask(with: URL(string: vm.image)!) { [weak self] (data, response, error) in
+                    if error != nil {
+                        DispatchQueue.main.async {
+                            self?.foodImageView.image = UIImage(imageLiteralResourceName: "placeholder")
+                        }
+                        return
+                    }
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self?.foodImageView.image = image
+                        }
+                    }
+                }.resume()
             }
         }
     }
 
     lazy var foodImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "placeholder"))
-        imageView.contentMode = .scaleAspectFit
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 10.0
         imageView.clipsToBounds = true
         return imageView
@@ -70,6 +84,7 @@ class DashboardTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         viewModel = nil
+        foodImageView.image = nil
     }
 
     private func setupViews() {

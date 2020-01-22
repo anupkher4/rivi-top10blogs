@@ -102,7 +102,8 @@ extension DashboardViewController: UITableViewDataSource {
         }
 
         let foodCard = viewModel.foodCards[indexPath.row]
-        cell.viewModel = DashboardBlogCardViewModelImpl(foodCard: foodCard)
+        let cellViewModel = DashboardBlogCardViewModelImpl(foodCard: foodCard)
+        cell.viewModel = cellViewModel
 
         return cell
     }
