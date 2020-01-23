@@ -9,19 +9,6 @@ class DashboardTableViewCell: UITableViewCell {
         didSet {
             if let vm = viewModel {
                 bindData(vm)
-                URLSession.shared.dataTask(with: URL(string: vm.image)!) { [weak self] (data, response, error) in
-                    if error != nil {
-                        DispatchQueue.main.async {
-                            self?.foodImageView.image = UIImage(imageLiteralResourceName: "placeholder")
-                        }
-                        return
-                    }
-                    if let data = data, let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self?.foodImageView.image = image
-                        }
-                    }
-                }.resume()
             }
         }
     }
@@ -104,6 +91,22 @@ class DashboardTableViewCell: UITableViewCell {
     private func bindData(_ viewModel: DashboardBlogCardViewModel) {
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
+        downloadMainCardImage(viewModel)
     }
 
+    private func downloadMainCardImage(_ viewModel: DashboardBlogCardViewModel) {
+        URLSession.shared.dataTask(with: URL(string: viewModel.image)!) { [weak self] (data, response, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self?.foodImageView.image = UIImage(imageLiteralResourceName: "placeholder")
+                }
+                return
+            }
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self?.foodImageView.image = image
+                }
+            }
+        }.resume()
+    }
 }

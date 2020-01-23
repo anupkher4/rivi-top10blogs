@@ -23,6 +23,11 @@ protocol BlogDetailsViewModel {
     var selectedFoodCard: FoodCard { get }
 }
 
+protocol BlogDetailsCardViewModel {
+    var blogCard: DashboardBlogCardViewModel { get }
+    var blogDetailsCard: FoodCardDetails { get }
+}
+
 struct TitleViewModelImpl: TitleViewModel {
     var heading: String = "CURATED FOR MAYANK"
     var title: String
@@ -69,5 +74,15 @@ struct BlogDetailsViewModelImpl: BlogDetailsViewModel {
             return card
         })
         self.selectedFoodCard = selectedFoodCard
+    }
+}
+
+struct BlogDetailsCardViewModelImpl: BlogDetailsCardViewModel {
+    let blogCard: DashboardBlogCardViewModel
+    let blogDetailsCard: FoodCardDetails
+
+    init(foodCard: FoodCard) {
+        blogCard = DashboardBlogCardViewModelImpl(foodCard: foodCard)
+        blogDetailsCard = foodCard.details
     }
 }

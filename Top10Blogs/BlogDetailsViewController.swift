@@ -17,12 +17,16 @@ class BlogDetailsViewController: UIViewController {
     }()
 
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: CGRect.zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.sectionHeaderHeight = 50
+        tableView.sectionFooterHeight = 50
         return tableView
     }()
 
@@ -38,7 +42,7 @@ class BlogDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        tableView.register(DashboardTableViewCell.self, forCellReuseIdentifier: DashboardTableViewCell.reuseIdentifier)
+        tableView.register(BlogDetailsTableViewCell.self, forCellReuseIdentifier: BlogDetailsTableViewCell.reuseIdentifier)
         setupViewHierarchy()
         setupConstraints()
     }
@@ -46,6 +50,7 @@ class BlogDetailsViewController: UIViewController {
     private func setupViewHierarchy() {
         view.addSubview(headerView)
         view.addSubview(titleView)
+        view.addSubview(tableView)
     }
 
     private func setupConstraints() {
@@ -58,6 +63,11 @@ class BlogDetailsViewController: UIViewController {
         titleView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1).isActive = true
         titleView.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 1).isActive = true
         titleView.heightAnchor.constraint(equalToConstant: 150.0).isActive = true
+
+        tableView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalToSystemSpacingBelow: view.layoutMarginsGuide.bottomAnchor, multiplier: 1).isActive = true
     }
 }
 
@@ -72,9 +82,16 @@ extension BlogDetailsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BlogDetailsTableViewCell.reuseIdentifier, for: indexPath) as? BlogDetailsTableViewCell else {
+            fatalError("Expected \(BlogDetailsTableViewCell.self) type for resuseIdentifier \(BlogDetailsTableViewCell.reuseIdentifier)")
+        }
 
+        let foodCard = viewModel.foodCardSections[indexPath.section][indexPath.row]
+        let cellViewModel = BlogDetailsCardViewModelImpl(foodCard: foodCard)
+        cell.viewModel = cellViewModel
+
+        return cell
+    }
 }
 
 extension BlogDetailsViewController: UITableViewDelegate {
