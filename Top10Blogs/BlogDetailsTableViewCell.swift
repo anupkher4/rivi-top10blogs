@@ -44,6 +44,13 @@ class BlogDetailsTableViewCell: UITableViewCell {
         return view
     }()
 
+    lazy var chevronImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "downChevron"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        contentView.layer.cornerRadius = 10.0
@@ -68,6 +75,7 @@ class BlogDetailsTableViewCell: UITableViewCell {
         contentView.addSubview(foodImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
+        contentView.addSubview(chevronImageView)
         contentView.addSubview(detailsContentView)
     }
 
@@ -80,11 +88,16 @@ class BlogDetailsTableViewCell: UITableViewCell {
 
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10.0).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: foodImageView.trailingAnchor, constant: 20.0).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20.0).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: chevronImageView.leadingAnchor, constant: 20.0).isActive = true
 
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.lastBaselineAnchor, constant: 10.0).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
+
+        chevronImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50.0).isActive = true
+        chevronImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0).isActive = true
+        chevronImageView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        chevronImageView.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
 
         detailsContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10.0).isActive = true
         detailsContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0).isActive = true
