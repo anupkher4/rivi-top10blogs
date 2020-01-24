@@ -49,7 +49,7 @@ class WhereToEatView: UIView {
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
 
-        labelStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5.0).isActive = true
+        labelStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0).isActive = true
         labelStack.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
         labelStack.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
         labelStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true

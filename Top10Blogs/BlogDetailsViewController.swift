@@ -119,6 +119,10 @@ extension BlogDetailsViewController: UITableViewDataSource {
         let cellViewModel = BlogDetailsCardViewModelImpl(foodCard: foodCard)
         cell.viewModel = cellViewModel
 
+        if foodCard == viewModel.selectedFoodCard {
+            cell.detailsContentView.isHidden = false
+        }
+
         return cell
     }
 }
@@ -126,6 +130,15 @@ extension BlogDetailsViewController: UITableViewDataSource {
 extension BlogDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        guard let cell = tableView.cellForRow(at: indexPath) as? BlogDetailsTableViewCell else {
+            return
+        }
+
+        cell.detailsContentView.isHidden = !cell.detailsContentView.isHidden
+
+        let selectedImagePath = IndexPath(item: indexPath.section, section: 0)
+        collectionView.scrollToItem(at: selectedImagePath, at: .centeredHorizontally, animated: true)
     }
 }
 

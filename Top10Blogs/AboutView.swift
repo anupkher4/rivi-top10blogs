@@ -52,7 +52,7 @@ class AboutView: UIView {
         aboutLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0).isActive = true
         aboutLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
         aboutLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
-        layoutMarginsGuide.bottomAnchor.constraint(equalTo: aboutLabel.bottomAnchor, constant: 10.0).isActive = true
+        layoutMarginsGuide.bottomAnchor.constraint(equalTo: aboutLabel.bottomAnchor).isActive = true
     }
 
     private func bindData(details: FoodCardDetails) {
