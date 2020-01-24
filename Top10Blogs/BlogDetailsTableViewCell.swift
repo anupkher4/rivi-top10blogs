@@ -32,8 +32,8 @@ class BlogDetailsTableViewCell: UITableViewCell {
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15.0)
-        label.textColor = .gray
+        label.font = UIFont.boldSystemFont(ofSize: 15.0)
+        label.textColor = .systemGray
         label.numberOfLines = 0
         return label
     }()
@@ -69,6 +69,7 @@ class BlogDetailsTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         viewModel = nil
         foodImageView.image = nil
+        detailsContentView.foodCardDetails = nil
     }
 
     private func setupViews() {
