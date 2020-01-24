@@ -56,10 +56,18 @@ class BlogDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        tableView.register(BlogDetailsTableViewCell.self, forCellReuseIdentifier: BlogDetailsTableViewCell.reuseIdentifier)
-        collectionView.register(ImagesCollectionViewCell.self, forCellWithReuseIdentifier: ImagesCollectionViewCell.reuseIdentifier)
         setupViewHierarchy()
         setupConstraints()
+        tableView.register(BlogDetailsTableViewCell.self, forCellReuseIdentifier: BlogDetailsTableViewCell.reuseIdentifier)
+        collectionView.register(ImagesCollectionViewCell.self, forCellWithReuseIdentifier: ImagesCollectionViewCell.reuseIdentifier)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        let selectedIndexPath = IndexPath(row: 0, section: viewModel.selectedFoodCard.cardNumber - 1)
+        tableView.scrollToRow(at: selectedIndexPath, at: .bottom, animated: true)
+
+        let selectedImagePath = IndexPath(item: viewModel.selectedFoodCard.cardNumber - 1, section: 0)
+        collectionView.scrollToItem(at: selectedImagePath, at: .centeredHorizontally, animated: true)
     }
 
     private func setupViewHierarchy() {
@@ -83,10 +91,9 @@ class BlogDetailsViewController: UIViewController {
         collectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: titleView.leadingAnchor).isActive = true
         collectionView.trailingAnchor .constraint(equalTo: titleView.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
 
-        tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10.0).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalToSystemSpacingBelow: view.layoutMarginsGuide.bottomAnchor, multiplier: 1).isActive = true
