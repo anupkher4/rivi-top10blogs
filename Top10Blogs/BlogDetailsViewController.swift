@@ -25,8 +25,8 @@ class BlogDetailsViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.sectionHeaderHeight = 50
-        tableView.sectionFooterHeight = 50
+        tableView.sectionHeaderHeight = 30
+        tableView.sectionFooterHeight = 30
         return tableView
     }()
 

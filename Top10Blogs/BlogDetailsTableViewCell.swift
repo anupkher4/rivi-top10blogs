@@ -51,6 +51,15 @@ class BlogDetailsTableViewCell: UITableViewCell {
         return imageView
     }()
 
+    private lazy var footerLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.textColor = .gray
+        label.text = "READ MORE"
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        contentView.layer.cornerRadius = 10.0
@@ -78,6 +87,7 @@ class BlogDetailsTableViewCell: UITableViewCell {
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(chevronImageView)
         contentView.addSubview(detailsContentView)
+        contentView.addSubview(footerLabel)
     }
 
     private func setupConstraints() {
@@ -102,7 +112,11 @@ class BlogDetailsTableViewCell: UITableViewCell {
 
         detailsContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10.0).isActive = true
         detailsContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20.0).isActive = true
-        detailsContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10.0).isActive = true
+
+        footerLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        footerLabel.topAnchor.constraint(equalTo: detailsContentView.bottomAnchor).isActive = true
+        footerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        footerLabel.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
 
     private func bindData(_ viewModel: BlogDetailsCardViewModel) {

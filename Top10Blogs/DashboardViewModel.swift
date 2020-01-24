@@ -43,7 +43,7 @@ struct DashboardViewModelImpl: DashboardViewModel {
 
     init(service: FoodBlogService) {
         titleViewModel = TitleViewModelImpl(foodSummary: service.data.summary)
-        foodCards = service.data.cards
+        foodCards = service.data.cards.sorted()
     }
 }
 
@@ -67,8 +67,9 @@ struct BlogDetailsViewModelImpl: BlogDetailsViewModel {
 
     init(service: FoodBlogService, selectedFoodCard: FoodCard) {
         titleViewModel = TitleViewModelImpl(foodSummary: service.data.summary)
-        foodImageStrings = service.data.cards.map { $0.image }
-        foodCardSections = service.data.cards.map({ (foodCard) -> [FoodCard] in
+        let cards = service.data.cards.sorted()
+        foodImageStrings = cards.map { $0.image }
+        foodCardSections = cards.map({ (foodCard) -> [FoodCard] in
             var card: [FoodCard] = []
             card.append(foodCard)
             return card

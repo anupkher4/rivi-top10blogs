@@ -80,3 +80,15 @@ extension FoodBlogService {
         return service
     }
 }
+
+extension FoodCard: Equatable {
+    static func == (lhs: FoodCard, rhs: FoodCard) -> Bool {
+        return lhs.cardNumber == rhs.cardNumber
+    }
+}
+
+extension FoodCard: Comparable {
+    static func < (lhs: FoodCard, rhs: FoodCard) -> Bool {
+        return lhs.cardNumber < rhs.cardNumber
+    }
+}
