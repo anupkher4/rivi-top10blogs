@@ -54,11 +54,6 @@ class BlogDetailsTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        contentView.layer.cornerRadius = 10.0
-//        contentView.layer.shadowColor = UIColor.black.cgColor
-//        contentView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-//        contentView.layer.shadowOpacity = 0.4
-//        contentView.layer.shadowRadius = 10.0
         setupViews()
         setupConstraints()
     }
