@@ -1,6 +1,6 @@
 import UIKit
 
-class WhereToEatView: UIView {
+class DishesView: UIView {
 
     var foodCardDetails: FoodCardDetails? {
         didSet {
@@ -64,33 +64,24 @@ class WhereToEatView: UIView {
         return label
     }
 
-    private func setupLocationLabels(details: FoodCardDetails) {
-        if details.location.count == 1 {
-            let location = details.location[0].name
+    private func setupDishLabels(details: FoodCardDetails) {
+        if details.dishes.count == 1 {
             let label = getNewLabel()
             labelStack.addArrangedSubview(label)
-            if let distance = details.location[0].distance {
-                label.text = "\(location) (\(distance)Km from City Centre)"
-            } else {
-                label.text = "\(location)"
-            }
-        } else if details.location.count > 1 {
-            for (number, location) in details.location.enumerated() {
+            label.text = details.dishes[0]
+        } else {
+            for (number, dish) in details.dishes.enumerated() {
                 let label = getNewLabel()
                 labelStack.addArrangedSubview(label)
-                if let distance = location.distance {
-                    label.text = "\(number + 1). \(location.name) (\(distance)Km from City Centre)"
-                } else {
-                    label.text = "\(number + 1). \(location.name)"
-                }
+                label.text = "\(number + 1). \(dish)"
             }
         }
     }
 
     private func bindData(details: FoodCardDetails) {
-        if !details.location.isEmpty {
-            titleLabel.text = "WHERE TO EAT"
-            setupLocationLabels(details: details)
+        if !details.dishes.isEmpty {
+            titleLabel.text = "BEST DISHES"
+            setupDishLabels(details: details)
         } else {
             titleLabel.text = nil
         }

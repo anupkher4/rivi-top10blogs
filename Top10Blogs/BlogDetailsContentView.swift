@@ -9,6 +9,7 @@ class BlogDetailsContentView: UIView {
             } else {
                 aboutView.foodCardDetails = nil
                 whereToEatView.foodCardDetails = nil
+                dishesView.foodCardDetails = nil
             }
         }
     }
@@ -21,6 +22,12 @@ class BlogDetailsContentView: UIView {
 
     lazy var whereToEatView: WhereToEatView = {
         let view = WhereToEatView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var dishesView: DishesView = {
+        let view = DishesView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -38,6 +45,7 @@ class BlogDetailsContentView: UIView {
     private func setupViews() {
         addSubview(aboutView)
         addSubview(whereToEatView)
+        addSubview(dishesView)
     }
 
     private func setupConstraints() {
@@ -48,11 +56,16 @@ class BlogDetailsContentView: UIView {
         whereToEatView.topAnchor.constraint(equalTo: aboutView.bottomAnchor).isActive = true
         whereToEatView.leadingAnchor.constraint(equalTo: aboutView.leadingAnchor).isActive = true
         whereToEatView.trailingAnchor.constraint(equalTo: aboutView.trailingAnchor).isActive = true
-        whereToEatView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+
+        dishesView.topAnchor.constraint(equalTo: whereToEatView.bottomAnchor).isActive = true
+        dishesView.leadingAnchor.constraint(equalTo: whereToEatView.leadingAnchor).isActive = true
+        dishesView.trailingAnchor.constraint(equalTo: whereToEatView.trailingAnchor).isActive = true
+        dishesView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 
     private func bindData(details: FoodCardDetails) {
         aboutView.foodCardDetails = details
         whereToEatView.foodCardDetails = details
+        dishesView.foodCardDetails = details
     }
 }
