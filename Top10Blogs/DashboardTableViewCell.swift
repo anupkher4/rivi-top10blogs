@@ -95,6 +95,12 @@ class DashboardTableViewCell: UITableViewCell {
     }
 
     private func downloadMainCardImage(_ viewModel: DashboardBlogCardViewModel) {
+        let imageCache = NSCache<NSString, UIImage>()
+        if let cachedImage = imageCache.object(forKey: NSString(string: viewModel.image)) {
+            DispatchQueue.main.async {
+                self.foodImageView.image = cachedImage
+            }
+        }
         URLSession.shared.dataTask(with: URL(string: viewModel.image)!) { [weak self] (data, response, error) in
             if error != nil {
                 DispatchQueue.main.async {
@@ -103,6 +109,7 @@ class DashboardTableViewCell: UITableViewCell {
                 return
             }
             if let data = data, let image = UIImage(data: data) {
+                imageCache.setObject(image, forKey: NSString(string: viewModel.image))
                 DispatchQueue.main.async {
                     self?.foodImageView.image = image
                 }

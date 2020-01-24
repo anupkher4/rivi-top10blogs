@@ -70,7 +70,15 @@ class PhotosView: UIView {
     }
 
     private func setupImages(details: FoodCardDetails) {
+        let imageCache = NSCache<NSString, UIImage>()
         for image in details.images {
+            if let cachedImage = imageCache.object(forKey: NSString(string: image)) {
+                DispatchQueue.main.async {
+                    let imageView = self.getNewImageView()
+                    imageView.image = cachedImage
+                    self.imageStack.addArrangedSubview(imageView)
+                }
+            }
             URLSession.shared.dataTask(with: URL(string: image)!) { [weak self] (data, response, error) in
                 if error != nil {
                     DispatchQueue.main.async {
@@ -81,10 +89,11 @@ class PhotosView: UIView {
                     }
                     return
                 }
-                if let data = data, let image = UIImage(data: data) {
+                if let data = data, let downloadedImage = UIImage(data: data) {
+                    imageCache.setObject(downloadedImage, forKey: NSString(string: image))
                     DispatchQueue.main.async {
                         if let imageView = self?.getNewImageView() {
-                            imageView.image = image
+                            imageView.image = downloadedImage
                             self?.imageStack.addArrangedSubview(imageView)
                         }
                     }
