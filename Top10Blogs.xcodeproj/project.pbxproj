@@ -16,6 +16,7 @@
 		51741FB923DA22D0005DA506 /* WhereToEatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51741FB823DA22D0005DA506 /* WhereToEatView.swift */; };
 		51741FBB23DADCDE005DA506 /* DishesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51741FBA23DADCDE005DA506 /* DishesView.swift */; };
 		51741FBD23DAEE2F005DA506 /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51741FBC23DAEE2F005DA506 /* PhotosView.swift */; };
+		51741FBF23DB24D8005DA506 /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51741FBE23DB24D8005DA506 /* ImagesCollectionViewCell.swift */; };
 		517CFC8423D17256000B4C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CFC8323D17256000B4C5A /* AppDelegate.swift */; };
 		517CFC8D23D17257000B4C5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8C23D17257000B4C5A /* Assets.xcassets */; };
 		517CFC9023D17257000B4C5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 517CFC8E23D17257000B4C5A /* LaunchScreen.storyboard */; };
@@ -49,6 +50,7 @@
 		51741FB823DA22D0005DA506 /* WhereToEatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereToEatView.swift; sourceTree = "<group>"; };
 		51741FBA23DADCDE005DA506 /* DishesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesView.swift; sourceTree = "<group>"; };
 		51741FBC23DAEE2F005DA506 /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
+		51741FBE23DB24D8005DA506 /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		517CFC8023D17256000B4C5A /* Top10Blogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Top10Blogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		517CFC8323D17256000B4C5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		517CFC8C23D17257000B4C5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				51741FB823DA22D0005DA506 /* WhereToEatView.swift */,
 				51741FBA23DADCDE005DA506 /* DishesView.swift */,
 				51741FBC23DAEE2F005DA506 /* PhotosView.swift */,
+				51741FBE23DB24D8005DA506 /* ImagesCollectionViewCell.swift */,
 			);
 			path = Top10Blogs;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				517CFCB823D5BC0A000B4C5A /* DashboardTableViewCell.swift in Sources */,
 				51741FB923DA22D0005DA506 /* WhereToEatView.swift in Sources */,
 				517CFCBC23D717BD000B4C5A /* TitleView.swift in Sources */,
+				51741FBF23DB24D8005DA506 /* ImagesCollectionViewCell.swift in Sources */,
 				51741FBB23DADCDE005DA506 /* DishesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,6 +30,20 @@ class BlogDetailsViewController: UIViewController {
         return tableView
     }()
 
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: view.bounds.width - 30, height: 200)
+        flowLayout.minimumInteritemSpacing = 10.0
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10.0, bottom: 0, right: 10.0)
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
+
     init(viewModel: BlogDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -43,6 +57,7 @@ class BlogDetailsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         tableView.register(BlogDetailsTableViewCell.self, forCellReuseIdentifier: BlogDetailsTableViewCell.reuseIdentifier)
+        collectionView.register(ImagesCollectionViewCell.self, forCellWithReuseIdentifier: ImagesCollectionViewCell.reuseIdentifier)
         setupViewHierarchy()
         setupConstraints()
     }
@@ -50,6 +65,7 @@ class BlogDetailsViewController: UIViewController {
     private func setupViewHierarchy() {
         view.addSubview(headerView)
         view.addSubview(titleView)
+        view.addSubview(collectionView)
         view.addSubview(tableView)
     }
 
@@ -64,7 +80,13 @@ class BlogDetailsViewController: UIViewController {
         titleView.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 1).isActive = true
         titleView.heightAnchor.constraint(equalToConstant: 150.0).isActive = true
 
-        tableView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: titleView.leadingAnchor).isActive = true
+        collectionView.trailingAnchor .constraint(equalTo: titleView.trailingAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
+
+        tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalToSystemSpacingBelow: view.layoutMarginsGuide.bottomAnchor, multiplier: 1).isActive = true
@@ -97,5 +119,22 @@ extension BlogDetailsViewController: UITableViewDataSource {
 extension BlogDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension BlogDetailsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.foodImageStrings.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImagesCollectionViewCell.reuseIdentifier, for: indexPath) as? ImagesCollectionViewCell else {
+            fatalError("Expected \(ImagesCollectionViewCell.self) type for resuseIdentifier \(ImagesCollectionViewCell.reuseIdentifier)")
+        }
+
+        let foodImage = viewModel.foodImageStrings[indexPath.row]
+        cell.foodImage = foodImage
+
+        return cell
     }
 }
